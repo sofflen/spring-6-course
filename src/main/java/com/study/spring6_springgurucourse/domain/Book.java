@@ -98,6 +98,7 @@ public class Book {
                 .add("title='" + title + "'")
                 .add("isbn='" + isbn + "'")
                 .add("authors=" + authors)
+                .add("publisher=" + publisher)
                 .toString();
     }
 }
