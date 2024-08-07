@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.StringJoiner;
@@ -18,7 +19,14 @@ public class Author {
     private String firstName;
     private String lastName;
     @ManyToMany
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
+
+    public Author() {}
+
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public Long getId() {
         return id;
