@@ -15,7 +15,7 @@ public class Book {
 
     @Id
     @GeneratedValue //GenerationType.AUTO default strategy
-    private long id;
+    private Long id;
     private String title;
     private String isbn;
     @ManyToMany
