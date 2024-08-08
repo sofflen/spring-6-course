@@ -105,6 +105,7 @@ public class Publisher {
                 .add("city='" + city + "'")
                 .add("state='" + state + "'")
                 .add("zip='" + zip + "'")
+                .add("books=" + books)
                 .toString();
     }
 }
