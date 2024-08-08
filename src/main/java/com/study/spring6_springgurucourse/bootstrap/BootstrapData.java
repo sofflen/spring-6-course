@@ -37,10 +37,10 @@ public class BootstrapData implements CommandLineRunner {
          */
         ericEvans = authorRepository.save(ericEvans);
         davidGoggins = authorRepository.save(davidGoggins);
-        ddd = bookRepository.save(ddd);
-        cantHurtMe = bookRepository.save(cantHurtMe);
-        mgpPublisher= publisherRepository.save(mgpPublisher);
+        mgpPublisher = publisherRepository.save(mgpPublisher);
 
+        ddd.getAuthors().add(ericEvans);
+        cantHurtMe.getAuthors().add(davidGoggins);
         ddd.setPublisher(mgpPublisher);
         cantHurtMe.setPublisher(mgpPublisher);
 
@@ -49,9 +49,12 @@ public class BootstrapData implements CommandLineRunner {
 
         ericEvans.getBooks().add(ddd);
         davidGoggins.getBooks().add(cantHurtMe);
+        mgpPublisher.getBooks().add(ddd);
+        mgpPublisher.getBooks().add(cantHurtMe);
 
         authorRepository.save(ericEvans);
         authorRepository.save(davidGoggins);
+        publisherRepository.save(mgpPublisher);
 
         System.out.printf("Bootstrap:\nAuthors: %d\nBooks: %d\nPublishers: %d",
                 authorRepository.count(), bookRepository.count(), publisherRepository.count());
